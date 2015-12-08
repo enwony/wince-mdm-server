@@ -1,0 +1,20 @@
+<Inventory type="machine">
+<InventoryItem name="Device_System">
+<Property name="PlatformType">Shtrih-M Embedded</Property><Property name="OEMInfo">SHTRIH-LightPOS</Property><Property name="NumberOfProcessors">1</Property><Property name="ProcessorArchitecture">5</Property><Property name="ProcessorType">2336</Property><Property name="ProcessorLevel">4</Property><Property name="ProcessorRevision">0</Property><Property name="ISA">84017152</Property></InventoryItem>
+<InventoryItem name="Device_OS">
+<Property name="Platform">3</Property><Property name="MajorVersion">4</Property><Property name="MinorVersion">21</Property><Property name="BuildNumber">2010</Property></InventoryItem>
+<InventoryItem name="Device_Network">
+<Property name="IPAddress">192.168.1.2</Property><Property name="IPSubnet">255.255.255.0</Property><Property name="MAC">00-08-22-05-26-CB</Property><Property name="Bandwidth">10000000</Property></InventoryItem>
+<InventoryItem name="Device_Power">
+<Property name="AC">1</Property><Property name="Battery">1</Property><Property name="BatteryPercent">100</Property><Property name="Backup">255</Property><Property name="BackupPercent">255</Property></InventoryItem>
+<InventoryItem name="Device_Display">
+<Property name="VerticalResolution">640</Property><Property name="HorizontalResolution">480</Property><Property name="NumberOfColors">65536</Property></InventoryItem>
+<InventoryItem name="Device_Memory">
+<Property name="Total">29816</Property><Property name="Program">6692</Property><Property name="ProgramFree">23124</Property><Property name="Storage">9888</Property><Property name="StorageFree">9853</Property></InventoryItem>
+<InventoryItem name="Device_FileSystem">
+<Property name="Name">root</Property><Property name="Size">9888</Property><Property name="UsedSpace">34</Property></InventoryItem>
+<InventoryItem name="Device_FileSystem">
+<Property name="Name">Storage Card</Property><Property name="Size">248816</Property><Property name="UsedSpace">31862</Property></InventoryItem>
+<InventoryItem name="Device_FileSystem">
+<Property name="Name">ResidentFlash</Property><Property name="Size">42719</Property><Property name="UsedSpace">15491</Property></InventoryItem>
+</Inventory>

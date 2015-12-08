@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="container theme-showcase" role="main">
+<div class="jumbotron">
+<h1>Device {{device.id}} inventory</h1>
+</div>
+
+
+{% for item in device.inventory_items %}
+ <div class="panel panel-default">
+   <div class="panel-heading">
+     <h3 class="panel-title">{{item.name}}</h3>
+   </div>
+   <div class="panel-body">
+	<table class="table">
+	<tr><th>Name</th><th>Value</th></tr>
+{% for prop in item.properties %}
+<tr><td>{{prop.name}}</td><td>{{prop.value}}</td>
+{% endfor %}
+	</table>
+   </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}
+

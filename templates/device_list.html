@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="container theme-showcase" role="main">
+<div class="jumbotron">
+<h1>Current device list</h1>
+<p>Running on {{server.title}} version {{server.version}}</p>
+</div>
+<table class="table">
+<th>UUID</th>
+<th>Last poll</th>
+<th>Last inventory</th>
+{% for device in devices %}
+<tr>
+	<td><a href="{{url_for('device', device_id=device.id)}}">{{device.id}}</a></td>
+	<td>{{device.last_poll}}</td>
+	<td><a href="{{url_for('inventory', device_id=device.id)}}">{{device.last_inventory}}</a></td>
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

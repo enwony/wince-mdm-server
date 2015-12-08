@@ -18,7 +18,7 @@
       </FileFilterItem>
     </SoftwareInventorySettings>
     <FileCollectionSettings version="1.0">
-      <Enabled>{{boolean(device.file_report_enabled)}}</Enabled>
+      <Enabled>{{boolean(device.file_report_enable)}}</Enabled>
       <Interval>{{interval(device.file_report_interval)}}</Interval>
       <FileFilterItem>
         <Filter>{{device.file_report_filter}}</Filter>
@@ -29,7 +29,7 @@
       </FileFilterItem>
     </FileCollectionSettings>
     <MachineInventorySettings version="1.0">
-      <Enabled>{{boolean(device.hardware_report_enabled)}}</Enabled>
+      <Enabled>{{boolean(device.hardware_report_enable)}}</Enabled>
       <Interval>{{interval(device.hardware_report_interval)}}</Interval>
     </MachineInventorySettings>
   </Settings>

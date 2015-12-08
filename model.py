@@ -1,11 +1,13 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Text, DateTime
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from datetime import datetime
 Base = declarative_base()
 
 # TODO: move app_id/machine ID from string to GUID?
 def create_all(engine):
     Base.metadata.create_all(bind = engine)
-    
+
 class Server():
     """
         server props. HINT: does not stored to database 
@@ -81,10 +83,10 @@ class Device(Base):
     software_report_interval = Column(Integer)
     
     """ @var software_report_filter - filter for software??? """
-    software_report_filter = Column(String(255))
+    software_report_filter = Column(Text)
     
     """ @var software_report_path - path for software??? """
-    software_report_path = Column(String(255))
+    software_report_path = Column(Text)
     
     """ @var software_report_recursive - use recursion to search """
     software_report_recursive = Column(Boolean)
@@ -103,10 +105,10 @@ class Device(Base):
     file_report_interval = Column(Integer)
     
     """ @var file_report_filter - filter for files??? """
-    file_report_filter = Column(String(255))
+    file_report_filter = Column(Text)
     
     """ @var file_report_path - path for files??? """
-    file_report_path = Column(String(255))
+    file_report_path = Column(Text)
     
     """ @var file_report_recursive - use recursion to search """
     file_report_recursive = Column(Boolean)
@@ -124,6 +126,24 @@ class Device(Base):
     """ @var hardware_report_interval - how often reports will be done """
     hardware_report_interval = Column(Integer)
 
+    """ @var created_at: datetime - when record is created """
+    created_at = Column(DateTime)
+    
+    """ @var last_poll: datetime - last time poll request coming """
+    last_poll = Column(DateTime)
+
+    """ @var last_inventory: datetime - last time inventory report coming """
+    last_inventory = Column(DateTime)
+
+    """ @var inventory_items: iterable - last inventory items """
+    inventory_items = relationship("InventoryItem")
+
+    def last_poll_update(self):
+        self.last_poll = datetime.now()
+        
+    def last_inventory_update(self):
+        self.last_inventory = datetime.now()
+    
     def __init__(self):
         self.name = 'Unknown device'
         self.poll_interval = 60 
@@ -145,6 +165,7 @@ class Device(Base):
         self.file_report_path = ""
         self.hardware_report_enable = False
         self.hardware_report_interval = 60
+        self.created_at = datetime.now()
         
 class Package(Base):
     """
@@ -159,10 +180,34 @@ class Package(Base):
 class AssignedPackage(Base):
     """
         represent package need to be installed on device
+        packages selected from shared list
     """
     __tablename__ = 'assigned_package'
 
     id = Column(Integer, primary_key = True)
     package = Column(String(64), ForeignKey('package.id'))
     device = Column(String(64), ForeignKey('device.id'))
+
+class InventoryItem(Base):
+    """
+        represent inventory report item (such as memory or battery or disk) in device
+    """
+    __tablename__ = 'inventory_item'
+    id = Column(Integer, primary_key = True)
+    device = Column(String(64), ForeignKey('device.id'))
+    name = Column(String(128))
+    
+    """ @var properties: iterable - list of all properties """
+    properties = relationship("InventoryProperty")
+    
+class InventoryProperty(Base):
+    """
+        represent inventory property and it's value, for ex: screen width = 800
+    """
+    __tablename__ = 'inventory_property'
+    
+    id = Column(Integer, primary_key = True)
+    item = Column(Integer, ForeignKey('inventory_item.id'))
+    name = Column(String(128))
+    value = Column(Text)
     

@@ -28,7 +28,11 @@ class FlaskrTestCase(unittest.TestCase):
         s.write(response.data)
         s.close()
         print response.data
-        assert response.data == open('test/poll_reply_example').read() 
+        assert response.data == open('test/poll_reply_example').read()
+        
+    def test_inventory_report(self):
+        # need pass headers
+        pass
 
 if __name__ == '__main__':
     unittest.main()
