@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DevicePoll xmlns="http://www.microsoft.com/DeviceManagement.xsd"><ManagementSystem><Name>SMS Device Management</Name><Version>2.5.0.0</Version></ManagementSystem>
+<Identification>
+<ID>26CB0000-1807-1211-1502-736874726968</ID><DeviceName>SHTRIH-LightPOS</DeviceName><UserName>domain\rorkkt</UserName>
+<Platform>Shtrih-M Embedded</Platform><Processor>2336</Processor><NetworkAdapter >
+<IPAddress>192.168.1.2</IPAddress><IPSubnet>255.255.255.0</IPSubnet>
+</NetworkAdapter>
+<CodePage>866</CodePage>
+<SystemDefaultLCID>1049</SystemDefaultLCID>
+</Identification>
+<Connection>
+<AuthorizationToken>0</AuthorizationToken>
+<Timestamp>0</Timestamp>
+</Connection>
+</DevicePoll>

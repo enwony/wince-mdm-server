@@ -1,0 +1,38 @@
+<PollResponse>
+  <Settings>
+    <ClientSettings version="1.0">
+      <PollServer>{{server.name}}</PollServer>
+      <PollInterval>{{interval(device.poll_interval)}}</PollInterval>
+      <FailureRetryCount>{{device.failure_retry}}</FailureRetryCount>
+      <FailureRetryInterval>{{interval(device.failure_interval)}}</FailureRetryInterval>
+    </ClientSettings>
+    <SoftwareInventorySettings version="1.0">
+      <Enabled>{{boolean(device.software_report_enable)}}</Enabled>
+      <Interval>{{interval(device.software_report_interval)}}</Interval>
+      <FileFilterItem>
+        <Filter>{{device.software_report_filter}}</Filter>
+        <Path>{{device.software_report_path}}</Path>
+        <Recursive>{{device.software_report_recursive}}</Recursive>
+        <ExcludeCompressed>{{boolean(device.software_report_compressed)}}</ExcludeCompressed>
+        <ExcludeEncrypted>{{boolean(device.software_report_ecnrypted)}}</ExcludeEncrypted>
+      </FileFilterItem>
+    </SoftwareInventorySettings>
+    <FileCollectionSettings version="1.0">
+      <Enabled>{{boolean(device.file_report_enabled)}}</Enabled>
+      <Interval>{{interval(device.file_report_interval)}}</Interval>
+      <FileFilterItem>
+        <Filter>{{device.file_report_filter}}</Filter>
+        <Path>{{device.file_report_path}}</Path>
+        <Recursive>{{boolean(device.file_report_recursive)}}</Recursive>
+        <ExcludeCompressed>{{boolean(device.file_report_compressed)}}</ExcludeCompressed>
+        <ExcludeEncrypted>{{boolean(device.file_report_encrypted)}}</ExcludeEncrypted>
+      </FileFilterItem>
+    </FileCollectionSettings>
+    <MachineInventorySettings version="1.0">
+      <Enabled>{{boolean(device.hardware_report_enabled)}}</Enabled>
+      <Interval>{{interval(device.hardware_report_interval)}}</Interval>
+    </MachineInventorySettings>
+  </Settings>
+  <ApplicablePackages>
+  </ApplicablePackages>
+</PollResponse>

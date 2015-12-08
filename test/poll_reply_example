@@ -1,0 +1,38 @@
+<PollResponse>
+  <Settings>
+    <ClientSettings version="1.0">
+      <PollServer>192.168.1.1</PollServer>
+      <PollInterval>0000-00-00 00:01:00</PollInterval>
+      <FailureRetryCount>10</FailureRetryCount>
+      <FailureRetryInterval>0000-00-00 00:10:00</FailureRetryInterval>
+    </ClientSettings>
+    <SoftwareInventorySettings version="1.0">
+      <Enabled>false</Enabled>
+      <Interval>0000-00-00 00:01:00</Interval>
+      <FileFilterItem>
+        <Filter></Filter>
+        <Path></Path>
+        <Recursive>True</Recursive>
+        <ExcludeCompressed>true</ExcludeCompressed>
+        <ExcludeEncrypted>false</ExcludeEncrypted>
+      </FileFilterItem>
+    </SoftwareInventorySettings>
+    <FileCollectionSettings version="1.0">
+      <Enabled>false</Enabled>
+      <Interval>0000-00-00 00:01:00</Interval>
+      <FileFilterItem>
+        <Filter></Filter>
+        <Path></Path>
+        <Recursive>true</Recursive>
+        <ExcludeCompressed>false</ExcludeCompressed>
+        <ExcludeEncrypted>true</ExcludeEncrypted>
+      </FileFilterItem>
+    </FileCollectionSettings>
+    <MachineInventorySettings version="1.0">
+      <Enabled>false</Enabled>
+      <Interval>0000-00-00 00:01:00</Interval>
+    </MachineInventorySettings>
+  </Settings>
+  <ApplicablePackages>
+  </ApplicablePackages>
+</PollResponse>
