@@ -1,2 +1,6 @@
 This project is very pre-alfa implementation of microsoft windows CE device server
+Supported:
+* Device registration
+* Getting device info
+
  
